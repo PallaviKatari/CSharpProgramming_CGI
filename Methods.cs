@@ -27,6 +27,7 @@ namespace CSharpProgramming
             //Methods1.StaticDemo1();
             //Call an instance method from another class
             //instance - object
+            Methods1.StaticDemo1();
             Methods1 methods1 = new Methods1();
             methods1.InstanceDemo1();
         }
