@@ -41,6 +41,7 @@ namespace CSharpProgramming
     {
         public void GetTDetails()
         {
+            base.Display();
             TDID = 101;
             TDName = "DOTNET";
             Console.WriteLine($"TDID is {TDID} and TDName is {TDName}");
