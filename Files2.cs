@@ -44,11 +44,6 @@ namespace CSharpProgramming
             Console.WriteLine(path.LastAccessTime);
             Console.WriteLine(path.LastWriteTime);
             Console.WriteLine(path.Length);
-
-
-
-
-
         }
     }
 }
