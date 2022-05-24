@@ -10,54 +10,43 @@ namespace DataStructureSamples
     {
         public static void Main()
         {
-            print();
-        }
-        public static void print()
-        {
-            int i, no;
-            Console.WriteLine("Enter No : ");
-            no = Convert.ToInt32(Console.ReadLine());
-            int[] arr = new int[no];
-
-            for (i = 0; i < arr.Length; i++)
+            int[] a = new int[100];
+            Console.WriteLine("Number of elements in the array ?");
+            string s = Console.ReadLine();
+            int x = Int32.Parse(s);
+            Console.WriteLine("-----------------------");
+            Console.WriteLine(" Enter array elements ");
+            Console.WriteLine("-----------------------");
+            for (int i = 0; i < x; i++)
             {
-                Console.WriteLine("Enter Data {0} : ", (i + 1));
-                arr[i] = Convert.ToInt32(Console.ReadLine());
+                string s1 = Console.ReadLine();
+                a[i] = Int32.Parse(s1);
             }
-
-            Console.WriteLine("Enter Data to Search :");
-            int data = Convert.ToInt32(Console.ReadLine());
-            int res = Search(arr, data);
-            if (res != -1)
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Enter Search element");
+            Console.WriteLine("--------------------");
+            string s3 = Console.ReadLine();
+            int x2 = Int32.Parse(s3);
+            int low = 0;
+            int high = x - 1;
+            while (low <= high)
             {
-                Console.WriteLine("Found at {0} Position ", res);
-            }
-            else
-            {
-                Console.WriteLine("Not Found");
-            }
-        }
-        public static int Search(int[] arr, int target)
-        {
-            int min = 0, max = arr.Length - 1;
-
-            while (min < max)
-            {
-                int mid = (min + max) / 2;
-                if (target == arr[mid])
+                int mid = (low + high) / 2;
+                if (x2 < a[mid])
+                    high = mid - 1;
+                else if (x2 > a[mid])
+                    low = mid + 1;
+                else if (x2 == a[mid])
                 {
-                    return ++mid;
-                }
-                else if (target < arr[mid])
-                {
-                    max = mid - 1;
-                }
-                else
-                {
-                    min = mid + 1;
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Search successful");
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("Element {0} found at location {1}\n", x2, mid + 1);
+                    return;
                 }
             }
-            return 0;
+            Console.WriteLine("Search unsuccessful");
         }
+        
     }
 }
