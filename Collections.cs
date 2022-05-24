@@ -22,6 +22,10 @@ namespace CSharpProgramming
             ArrayListDemo();
             ListDemo();
             StackDemo();
+            QueueDemo();
+            SortedListDemo();   
+            DictionaryDemo();
+            HashtableDemo();
         }
         /// <summary>
         /// 1. ArrayList-Sytem.Collections-non-generic-not type specific
@@ -130,6 +134,98 @@ namespace CSharpProgramming
             int firstele=stack.ElementAt(1);
             Console.WriteLine(firstele);
             Console.WriteLine("*********************************");
+        }
+        /// <summary>
+        /// Queue-Generic-ENQUEUE,DEQUEUE-FIFO
+        /// </summary>
+
+        public static void QueueDemo()
+        {
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            queue.Enqueue(4);
+            Console.WriteLine("QUEUE");
+            foreach(int q in queue)
+            {
+                Console.WriteLine(q);
+            }
+            Console.WriteLine("*********************************");
+            int first=queue.Dequeue();
+            Console.WriteLine(first);
+            Console.WriteLine("*********************************");
+            foreach (int q in queue)
+            {
+                Console.WriteLine(q);
+            }
+            Console.WriteLine("*********************************");
+            int front=queue.Peek();
+            Console.WriteLine(front);
+
+        }
+        /// <summary>
+        /// SortedList-Generic-key/value-sort by default
+        /// </summary>
+        public static void SortedListDemo()
+        {
+            SortedList<string,string> list = new SortedList<string,string>();
+            list.Add("C#001", "CSharp Programming");
+            list.Add("J002", "Java Programming");
+            list.Add("P003", "Python Programming");
+            list.Add("A004", "ASP.NET MVC");
+            Console.WriteLine("SORTED LIST");
+            foreach(var sl in list)
+            {
+                Console.WriteLine(sl);
+            }
+            Console.WriteLine("*********************************");
+        }
+        /// <summary>
+        /// Dictionary-key/value pair-Generic-type specific
+        /// </summary>
+        public static void DictionaryDemo()
+        {
+            try
+            {
+                Dictionary<string, string> dict = new Dictionary<string, string>();
+                dict.Add("in", "India");
+                dict.Add("us", "United States");
+                dict.Add("uk", "United Kingdom");
+                Console.WriteLine("DICTIONARY");
+                foreach (KeyValuePair<string, string> kvp in dict)
+                {
+                    Console.Write(kvp.Key.ToString() + " ");
+                    Console.Write(kvp.Value.ToString());
+                    Console.WriteLine();
+                }
+                Console.WriteLine(dict["sk"]);//raise an exception
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.WriteLine("*********************************");
+
+        }
+        /// <summary>
+        /// Hashtable-Non-generic-key/value-not type specific
+        /// </summary>
+        public static void HashtableDemo()
+        {
+            Hashtable hashtable = new Hashtable();
+            hashtable.Add(1, "C#");
+            hashtable.Add(2, "Java");
+            hashtable.Add("in", "India");
+            Console.WriteLine("HASHTABLE");
+            //Interface
+            ICollection key=hashtable.Keys;
+            foreach(var contents in key)
+            {
+                Console.WriteLine(hashtable[contents]);
+            }
+            Console.WriteLine(hashtable[3]);
+
         }
     }
 }
